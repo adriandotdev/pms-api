@@ -1,0 +1,73 @@
+# Build results
+bin/
+obj/
+
+# .NET Core user secrets
+secrets.json
+*.user
+*.suo
+
+# ASP.NET Scaffolding
+.scaffolding/
+
+# Rider project files
+.idea/
+
+# VS Code settings
+.vscode/
+
+# Visual Studio settings
+*.user
+*.suo
+
+# Logs
+*.log
+
+# User-specific files
+*.vspscc
+*.vssscc
+.vs/
+
+# Configuration files that shouldn't be committed (optional)
+appsettings.Development.json
+appsettings.Local.json
+appsettings.json
+.env
+
+# Backup & temporary files
+*.bak
+*.tmp
+*.swp
+
+# Publish directory (optional)
+publish/
+
+# Global JetBrains Rider settings
+.idea/
+
+# Dotnet CLI artifacts
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Resharper
+_ReSharper*/
+*.ReSharper
+*.DotSettings.user
+
+# Test results
+TestResults/
+
+# NCrunch
+*.ncrunch*
+.*crunch*.local.xml
+
+# DotCover
+*.dotCover
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Optional: if you're using SQLite for local testing
+*.db
