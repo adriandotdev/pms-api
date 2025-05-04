@@ -31,6 +31,7 @@ secrets.json
 # Configuration files that shouldn't be committed (optional)
 appsettings.Development.json
 appsettings.Local.json
+appsettings.Production.json
 appsettings.json
 .env
 

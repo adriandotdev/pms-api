@@ -8,8 +8,10 @@ namespace Route {
         public static void Map(WebApplication app) {
             var products = app.MapGroup("/api/v1/products");
 
-            products.MapGet("/test", TestAPI);
+           
             
+            products.MapGet("/test", TestAPI);
+
             products.MapGet("/", GetProducts).RequireAuthorization("admin_auth");
 
             products.MapPost("/", CreateProduct);
@@ -19,13 +21,16 @@ namespace Route {
             products.MapPut("/{id}", UpdateProduct);
         }
 
-        private static async Task<IResult> TestAPI() {
-
-            return TypedResults.Ok(new {
-
-                message = "It is working"
+        private static async Task<IResult> TestAPI(IConfiguration config)
+        {
+            Console.WriteLine(config["ConnectionStrings:DefaultConnection"]);
+            return TypedResults.Ok(new
+            {
+                message = "It is working",
+                connection = config["ConnectionStrings:DefaultConnection"]
             });
         }
+
         private static async Task<IResult> DeleteProduct(int id, ProductDb db)
         {
             var product = await db.Products.FindAsync(id);
