@@ -1,0 +1,13 @@
+version: "3.4"
+
+services:
+  pms-api:
+    image: pms-api
+    build:
+      context: . # This points to current directory
+      dockerfile: Dockerfile # Optional, only if not named 'Dockerfile'
+    ports:
+      - "5125:8080"
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=yanyanstore-pgsql.postgres.database.azure.com;Port=5432;Username=yanyanstore;Password=Lauriano_112300;Database=postgres;Ssl Mode=Require;Trust Server Certificate=true;
+      - Authentication__JwtSecretKey=lKZeIGXppeth7cXr+nqa4yM7xwfWgdBgc65U1EYlgeU=

@@ -9,8 +9,8 @@ namespace Route {
 
             var categories = app.MapGroup("/api/v1/categories");
 
-            categories.MapGet("/", GetCategories).RequireAuthorization("user_auth");
-            categories.MapPost("/", CreateCategory);
+            categories.MapGet("/", GetCategories).RequireAuthorization("admin_auth");
+            categories.MapPost("/", CreateCategory).RequireAuthorization("admin_auth");
         }
 
         private static async Task<IResult> GetCategories(ProductDb db, int pageSize = 10, int pageNumber = 1) {

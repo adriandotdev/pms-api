@@ -14,11 +14,11 @@ namespace Route {
 
             products.MapGet("/", GetProducts).RequireAuthorization("admin_auth");
 
-            products.MapPost("/", CreateProduct);
+            products.MapPost("/", CreateProduct).RequireAuthorization("admin_auth");
 
-            products.MapDelete("/{id}", DeleteProduct);
+            products.MapDelete("/{id}", DeleteProduct).RequireAuthorization("admin_auth");
 
-            products.MapPut("/{id}", UpdateProduct);
+            products.MapPut("/{id}", UpdateProduct).RequireAuthorization("admin_auth");
         }
 
         private static async Task<IResult> TestAPI(IConfiguration config)
