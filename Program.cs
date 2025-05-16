@@ -70,6 +70,14 @@ app.UseCors(AllowedOrigins);
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapGet("/health", () =>
+{
+    return TypedResults.Ok(new
+    {
+        message = "Ok"
+    });
+});
+
 // Routes
 ProductRoute.Map(app);
 CategoryRoute.Map(app);
