@@ -6,11 +6,8 @@ namespace Route {
     public class ProductRoute {
 
         public static void Map(WebApplication app) {
-            var products = app.MapGroup("/api/v1/products");
-
-           
             
-            products.MapGet("/test", TestAPI);
+            var products = app.MapGroup("/api/v1/products");
 
             products.MapGet("/", GetProducts).RequireAuthorization("admin_auth");
 
@@ -19,16 +16,6 @@ namespace Route {
             products.MapDelete("/{id}", DeleteProduct).RequireAuthorization("admin_auth");
 
             products.MapPut("/{id}", UpdateProduct).RequireAuthorization("admin_auth");
-        }
-
-        private static async Task<IResult> TestAPI(IConfiguration config)
-        {
-            Console.WriteLine(config["ConnectionStrings:DefaultConnection"]);
-            return TypedResults.Ok(new
-            {
-                message = "It is working",
-                connection = config["ConnectionStrings:DefaultConnection"]
-            });
         }
 
         private static async Task<IResult> DeleteProduct(int id, ProductDb db)
